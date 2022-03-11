@@ -1,11 +1,11 @@
 //set variables for the page this will let the script place things on the page.
 
-var quiz = document.getElementById("quiz");;
+var quiz = document.getElementById("quiz");
 var resultsCup = document.getElementById("results");
 var btn = document.createElement("button");
 var pTags = document.getElementById("content");
 var generateBtn = document.querySelector("#quizstart");
-var timerEl = document.getElementById('countdown');
+var timerEl = document.getElementById("countdown");
 var btn = document.createElement("button");
 
 // Make some questions
@@ -47,15 +47,15 @@ function submitButton(){
     } 
 
 function removeStart(){
-    var startButton = document.getElementById("div1");
+    var startButton = document.getElementById("startbutton");
     startButton.remove();
 }
 
 // load the quiz page with buttons to start
 generateBtn.addEventListener("click", showQuestion);
 generateBtn.addEventListener("click", showCountdown);
-generateBtn.addEventListener("click", submitButton);
 generateBtn.addEventListener("click", removeStart);
+generateBtn.addEventListener("click", submitButton);
 
 
 
@@ -98,19 +98,19 @@ btn.addEventListener("click", showResults);
 // need to validate if the answers are correct and calculate the score
 // put answers into an array and validate them with the correct letter answer?
 function showResults(){
-    // place answers into an array
-    var answerBucket = quiz.querySelectorAll(".answers");
     // Declare that the counter starts at 0
-    correctCount = 0;
+    var correctCount = 0;
+    // select all of the answers
+    var answerBuckets = quiz.querySelectorAll(".answers");
+    // for each question make sure the correct letter answer is equivalent to the 
     myQuestions.forEach( (currentQuestion, questionNumber) => {
-        answerBucket = answerBucket[questionNumber];
-        selector = `input[name=question${questionNumber}]:checked`;
-        userInput = (answerBucket.querySelector(selector));
-        // for each question make sure the correct letter answer is equivalent to the 
+        answerBucket = answerBuckets[questionNumber];
+        selector = `input[name=question${currentQuestion.answers}]:checked`;
+        userInput = (answerBucket.querySelector(currentQuestion.answers[letter]));
+        console.log(userInput)
         // user's input and increase the count
         if(userInput === currentQuestion.correctAnswer){
             correctCount++
-            console.log(correctCount)
         }
         
     })
@@ -139,19 +139,18 @@ function showResults(){
 // add a timer
 
 function showCountdown(){
-        var timeLeft = 120;
-      
-        // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+        var timeLeft = 60;
+    
         var timeInterval = setInterval(function () {
           // As long as the `timeLeft` is greater than 1
           if (timeLeft > 1) {
             // Set the `textContent` of `timerEl` to show the remaining seconds
-            timerEl.textContent = timeLeft + ' seconds remaining';
+            timerEl.textContent = `${timeLeft} seconds remaining`;
             // Decrement `timeLeft` by 1
             timeLeft--;
           } else if (timeLeft === 1) {
             // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-            timerEl.textContent = timeLeft + ' second remaining';
+            timerEl.textContent = `${timeLeft} seconds remaining`;
             timeLeft--;
           } else {
             // Once `timeLeft` gets to 0, set `timerEl` to an empty string
@@ -166,6 +165,12 @@ function showCountdown(){
 
 // timer has to detract when answer is incorrect
 
+function displayMessage(){
+    quiz.textContent = ""
+    gameOver = document.getElementById("gameover")
+    gameOver.innerHTML = 'GAME OVER';
+    btn.textContent = "Try again"
+}
 
 
 
