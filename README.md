@@ -8,12 +8,12 @@ In this activity I was asked to create an online quiz game that asked the user a
 
 I utilized this website to help with adding the radio buttons to my questions
 
-(sitepoint.com)[sitepoint.com]
+[sitepoint.com](sitepoint.com)
 
 ## Screenshot of Page
 
-!(Screenshot of Page)[./assets.images/screenshot.png]
+![Screenshot of Page](./assets/images/screenshot.png)
 
 ### Link to Page
 
-(Final Page)[https://victorini1.github.io/Online_Quiz/]
+[Final Page](https://victorini1.github.io/Online_Quiz/)
