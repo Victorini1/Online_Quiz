@@ -95,6 +95,9 @@ quiz.innerHTML = output.join('');
 btn.addEventListener("click", showResults);
 }
 
+// quiz needs to load next question
+// quiz needs to show results 
+//show the results
 // need to validate if the answers are correct and calculate the score
 // put answers into an array and validate them with the correct letter answer?
 function showResults(){
@@ -122,18 +125,8 @@ function showResults(){
 
 
 
-// function showQuestion(){
-// // quiz needs to load on page
-// quiz.children[0].innerHTML = myQuestions[0].question;
-// //This is not displaying the anwers, but we also need to add the radio buttons
-// pTags.innerHTML = myQuestions[0].answers;
-// console.log(myQuestions[0].answers)
 
-// }
 
-// quiz needs to load next question
-// quiz needs to show results 
-//show the results
 
 
 // add a timer
